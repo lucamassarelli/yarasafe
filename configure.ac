@@ -77,11 +77,6 @@ AC_CHECK_LIB(m, isnan)
 AC_CHECK_LIB(m, log2)
 AC_CHECK_FUNCS([strlcpy strlcat memmem timegm _mkgmtime])
 
-AM_PATH_PYTHON([3.6])
-AX_PYTHON_CONFIG_VAR(LIBDIR, PY_LIBDIR)
-AX_PYTHON_CONFIG_VAR(LDVERSION, PY_LD)
-
-
 AC_ARG_ENABLE([debug],
   [AS_HELP_STRING([--enable-debug], [compiles with -g option])],
   [if test x$enableval = xyes; then
