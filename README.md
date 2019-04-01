@@ -1,13 +1,57 @@
 
-# Adding SAFE to YARA
+# YARASAFE - Adding SAFE embedding to match functions in yara
 
 SAFE is a tool developed to create Binary Functions Embedding developed by 
 Massarelli L., Di Luna G.A., Petroni F., Querzoni L. and Baldoni R.
-
 You can use SAFE to create your function embedding to use inside yara rules.
-
 If you are using this please cite:
 https://arxiv.org/abs/1811.05296
+
+### Requirements
+
+python3
+
+
+## Quickstart
+
+### Ubuntu
+
+Clone the repository:
+
+```
+git clone https://github.com/lucamassarelli/yarasafe.git
+```
+
+Install yara dependencies: 
+
+```
+sudo apt-get install automake libtool make gcc flex bison 
+sudo apt-get install libjansson-dev
+```
+
+Install radare2 on your system:
+
+```
+git clone https://github.com/radare/radare2.git
+cd radare2
+./sys/install.sh
+```
+
+Install yarasafe dependencies:
+
+```
+cd yarasafe/python_script
+pip install -r requirements.txt
+```
+
+Find python 3.* library path:
+```python
+import sys
+print(sys.path[2])
+```
+
+
+
 
 ###What you need
 Before to compile yara you need python3.* installed into your computer.
