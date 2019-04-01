@@ -1,0 +1,7 @@
+stream.lo: stream.c \
+  /Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include/stddef.h \
+  include/yara/stream.h
+
+/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include/stddef.h:
+
+include/yara/stream.h:

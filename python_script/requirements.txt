@@ -1,0 +1,6 @@
+r2pipe
+capstone
+puremagic
+tqdm
+networkx
+requests
