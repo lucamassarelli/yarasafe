@@ -119,7 +119,7 @@ noinst_HEADERS = \
 lib_LTLIBRARIES = libyara.la
 
 libyara_la_LDFLAGS = -version-number 3:8:1
-libyara_la_LDFLAGS += -L/Library/Frameworks/Python.framework/Versions/3.6/lib -lpython3.6m -ljansson
+libyara_la_LDFLAGS += -L$(PY_LIBDIR) -lpython$(PY_LD) -ljansson
 
 BUILT_SOURCES = \
   lexer.c \
