@@ -1,7 +1,6 @@
 import os
 import hashlib
 import json
-from ida_analyzer import IDAFunctionAnalyzer
 from FunctionAnalyzerRadare import RadareFunctionAnalyzer
 from InstructionsConverter import InstructionsConverter
 from FunctionNormalizer import FunctionNormalizer
