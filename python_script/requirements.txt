@@ -1,4 +1,5 @@
 r2pipe
+numpy
 capstone
 puremagic
 tqdm
