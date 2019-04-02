@@ -4,7 +4,8 @@
 SAFE is a tool developed to create Binary Functions Embedding developed by 
 Massarelli L., Di Luna G.A., Petroni F., Querzoni L. and Baldoni R.
 You can use SAFE to create your function embedding to use inside yara rules.
-If you are using this please cite:
+
+If you are using this for your research please cite:
 https://arxiv.org/abs/1811.05296
 
 ## Requirements
@@ -91,7 +92,7 @@ pip install -r requirements.txt
 make
 ```
 
-### Add safe to your version of yara
+## Adding safe to your version of yara
 If you want to add safe to your yara repository:
 * Copy the file libyara/modules/safe.c into your_rep/libyara/modules/safe.c
 * Copy the folder libyara/include/python into your_rep/libyara/include
@@ -108,9 +109,14 @@ If you want to add safe to your yara repository:
     ``` 
 * Compile! `
 
-### How to write your rule
+## How to write your rule
 
-An example of safe yara rule is:
+To create your safe-yara-rule, you first need to create the embeddings for your function.
+In order to accomplish this, you can use the IDA Pro plugin shipped within this repository.
+Inside the folder ida-pro-plugin you can find all the information on how to run the plugin!
+
+Once you get the embeddings for your functions, you just need to create the rule.
+An example of safe-yara-rule is:
 
 ```yara
 import safe
@@ -128,4 +134,4 @@ rule example
 ```
 
 The rule will be satisfied if inside the sample there is at least one function
-whose similarity with target is more then 0.95
+whose similarity with target is more then 0.95.
