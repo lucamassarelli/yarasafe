@@ -141,6 +141,7 @@ class RadareFunctionAnalyzer:
             end_address = s + my_function["realsz"]
             asm = self.r2.cmd("p8 {}".format(my_function["realsz"]))
         
+        asm = asm.strip()
         # print("ADDR:" + str(my_function['offset']))
         binary = binascii.unhexlify(asm)
 
