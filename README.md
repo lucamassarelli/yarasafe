@@ -56,7 +56,7 @@ make
 
 * Export environment variable:
 ```bash
-export YARAPYSCRIPT={PATH_TO_YARASAFEREPO}/python_script
+export YARAPYSCRIPT={PATH_TO_YARASAFE_REPO}/python_script
 ```
 
 ### MacOS
@@ -99,7 +99,7 @@ make
 
 * Export environment variable:
 ```bash
-export YARAPYSCRIPT={PATH_TO_YARASAFEREPO}/python_script
+export YARAPYSCRIPT={PATH_TO_YARASAFE_REPO}/python_script
 ```
 
 
