@@ -20,20 +20,20 @@ https://arxiv.org/abs/1811.05296
 
 * Clone the repository:
 
-```
+```bash
 git clone https://github.com/lucamassarelli/yarasafe.git
 ```
 
 * Install yara dependencies: 
 
-```
+```bash
 sudo apt-get install automake libtool make gcc flex bison 
 sudo apt-get install libjansson-dev
 ```
 
 * Install radare2 on your system:
 
-```
+```bash
 git clone https://github.com/radare/radare2.git
 cd radare2
 ./sys/install.sh
@@ -41,37 +41,42 @@ cd radare2
 
 * Install yarasafe dependencies:
 
-```
+```bash
 cd yarasafe/python_script
 pip install -r requirements.txt
 ```
 
 * Compile:
 
-```
+```bash
 ./bootstrap.sh
 ./configure.sh
 make
+```
+
+* Export environment variable:
+```bash
+export YARAPYSCRIPT={PATH_TO_YARASAFEREPO}/python_script
 ```
 
 ### MacOS
 
 * Clone the repository:
 
-```
+```bash
 git clone https://github.com/lucamassarelli/yarasafe.git
 ```
 
 * Install yara dependencies: 
 
-```
+```bash
 brew install automake libtool flex bison 
 brew install jansson
 ```
 
 * Install radare2 on your system:
 
-```
+```bash
 git clone https://github.com/radare/radare2.git
 cd radare2
 ./sys/install.sh
@@ -79,18 +84,24 @@ cd radare2
 
 Install yarasafe dependencies:
 
-```
+```bash
 cd yarasafe/python_script
 pip install -r requirements.txt
 ```
 
 * Compile:
 
-```
+```bash
 ./bootstrap.sh
 ./configure.sh
 make
 ```
+
+* Export environment variable:
+```bash
+export YARAPYSCRIPT={PATH_TO_YARASAFEREPO}/python_script
+```
+
 
 ## Adding safe to your version of yara
 If you want to add safe to your yara repository:
