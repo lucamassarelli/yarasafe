@@ -16,6 +16,10 @@ https://arxiv.org/abs/1811.05296
 
 ## Quickstart
 
+### Docker
+
+docker pull massarelli/yarasafe
+
 ### Ubuntu
 
 * Clone the repository:
@@ -102,23 +106,13 @@ make
 export YARAPYSCRIPT={PATH_TO_YARASAFE_REPO}/python_script
 ```
 
+## Testing
 
-## Adding safe to your version of yara
-If you want to add safe to your yara repository:
-* Copy the file libyara/modules/safe.c into your_rep/libyara/modules/safe.c
-* Copy the folder libyara/include/python into your_rep/libyara/include
-* At the end of libyara/modules/module_list add ``` MODULE(safe)
-* Modify libyara/Makefile.am: 
-    - after the line:
-    ``` bash
-    libyara_la_LDFLAGS = -version-number 3:8:1
-    ``` 
-    - add:
+Inside the folder rules you can find the rule sample_safe_rule.yar. This rule should trigger with any PE file:
 
-    ``` bash
-    libyara_la_LDFLAGS += -LPATH_TO_PYTHON3.*_LIB -lpython3.*m -ljansson 
-    ``` 
-* Compile! `
+```bash
+yara {PATH_TO_YARASAFE_REPO}/rules/sample_safe_rule.yar {FILES}
+```
 
 ## How to write your rule
 
@@ -146,3 +140,23 @@ rule example
 
 The rule will be satisfied if inside the sample there is at least one function
 whose similarity with target is more then 0.95.
+
+## Adding safe to your version of yara
+If you want to add safe to your yara repository:
+* Install all dependencies
+* Copy the file libyara/modules/safe.c into your_rep/libyara/modules/safe.c
+* Copy the folder libyara/include/python into your_rep/libyara/include
+* At the end of libyara/modules/module_list add ``` MODULE(safe)
+* Modify libyara/Makefile.am: 
+    - after the line:
+    ``` bash
+    libyara_la_LDFLAGS = -version-number 3:8:1
+    ``` 
+    - add:
+
+    ``` bash
+    libyara_la_LDFLAGS += -LPATH_TO_PYTHON3.*_LIB -lpython3.*m -ljansson 
+    ``` 
+* Compile! `
+
+
