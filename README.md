@@ -90,7 +90,7 @@ Install yarasafe dependencies:
 
 ```bash
 cd yarasafe/python_script
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 * Compile:
