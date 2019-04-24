@@ -8,13 +8,14 @@ You can use SAFE to create your function embedding to use inside yara rules.
 If you are interested take a look at our research paper: https://arxiv.org/abs/1811.05296
 
 If you are using this for your research please cite: 
-
+```latex
 @article{massarelli2018safe,
   title={SAFE: Self-Attentive Function Embeddings for Binary Similarity},
   author={Massarelli, Luca and Di Luna, Giuseppe Antonio and Petroni, Fabio and Querzoni, Leonardo and Baldoni, Roberto},
   booktitle={To Appear in: Proceedings of 16th Conference on Detection of Intrusions and Malware & Vulnerability Assessment (DIMVA)},
   year={2019}
 }
+```
 
 ## Introduction
 
