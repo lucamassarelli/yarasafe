@@ -9,7 +9,7 @@ If you are interested take a look at our research paper: https://arxiv.org/abs/1
 
 If you are using this for your research please cite: 
 ```latex
-@article{massarelli2018safe,
+@inproceedings{massarelli2018safe,
   title={SAFE: Self-Attentive Function Embeddings for Binary Similarity},
   author={Massarelli, Luca and Di Luna, Giuseppe Antonio and Petroni, Fabio and Querzoni, Leonardo and Baldoni, Roberto},
   booktitle={To Appear in: Proceedings of 16th Conference on Detection of Intrusions and Malware & Vulnerability Assessment (DIMVA)},
