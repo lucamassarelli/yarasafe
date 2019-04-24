@@ -18,7 +18,15 @@ https://arxiv.org/abs/1811.05296
 
 ### Docker
 
-docker pull massarelli/yarasafe
+Pull the images:
+
+* docker pull massarelli/yarasafe
+
+Start the docker mounting the folder that contains the rule and the file to analyze:
+
+* docker run -v {FOLDER_TO_MOUNT}:/home/yarasafe/test -it massarelli/yarasafe bash
+
+Launch yara inside the docker with your rule!
 
 ### Ubuntu
 
