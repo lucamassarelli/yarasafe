@@ -8,6 +8,17 @@ You can use SAFE to create your function embedding to use inside yara rules.
 If you are using this for your research please cite:
 https://arxiv.org/abs/1811.05296
 
+## Introduction
+
+Using yarasafe you can easily create signature for binary functions without lookng at the assembly code at all!
+You just need to install the IDA Pro Plugins that you find the IDA Pro Plugin folder of this repository. 
+
+Once you have installed the plugin you can start creating embeddings for the function you want to match.
+These embeddings can be inserted into yara rules to match function using yara. 
+To create powerful rule, you can combine multiple functions embeddings with standard yara rules.
+
+In this repository you will find the plugin for IDA Pro, and the yarasafe module. 
+
 ## Requirements
 
 * python3
@@ -16,7 +27,11 @@ https://arxiv.org/abs/1811.05296
 
 ## Quickstart
 
+First of all install the IDA Pro plugin. You can find the instruction for doing it in the ida-pro-plugin folder of this repository. Then you can use our docker container or you can build yara with yarasafe module.
+
 ### Docker
+
+The fastest way to use yarasafe is to use our docker container.
 
 Pull the images:
 
