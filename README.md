@@ -19,6 +19,8 @@ To create powerful rule, you can combine multiple functions embeddings with stan
 
 In this repository you will find the plugin for IDA Pro, and the yarasafe module. 
 
+Yarasafe can match functions with more than 50 instructions and less than 150.
+
 ## Requirements
 
 * python3
