@@ -11,7 +11,7 @@ import tempfile
 import sys
 
 
-tf_serving = "http://35.233.53.43:8500/v1/models/safe:predict"
+tf_serving = "http://yarasafe.diag.uniroma1.it:8500/v1/models/safe:predict"
 
 def read_string_from_pipe(f):
     byte = True
