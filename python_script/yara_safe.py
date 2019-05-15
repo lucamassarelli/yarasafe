@@ -69,23 +69,38 @@ def embedd_program(program, converter):
 
         normalizer = FunctionNormalizer(150)
         converted = []
-        for f in functions:
-            converted.append(converter.convert_to_ids(functions[f]['filtered_instructions']))
-        instructions, lenghts = normalizer.normalize_functions(converted)
-        payload = {"signature_name":"safe", "inputs":{"instruction":instructions, "lenghts":lenghts}}
+        
+        
+        #for f in functions:
+        #    converted.append(converter.convert_to_ids(functions[f]['filtered_instructions']))
+        #instructions, lenghts = normalizer.normalize_functions(converted)
+        #payload = {"signature_name":"safe", "inputs":{"instruction":instructions, "lenghts":lenghts}}
         #print("[Python] Computing embedding, found {} function".format(len(converted)))
+        #r = requests.post(tf_serving, data=json.dumps(payload))
+        #embeddings = json.loads(r.text)
 
-        r = requests.post(tf_serving, data=json.dumps(payload))
-        embeddings = json.loads(r.text)
+        embeddings = []
+        num_fcns = len(functions)
+        i = 0;
+        for i, f in enumerate(functions):
+            converted.append(converter.convert_to_ids(functions[f]['filtered_instructions']))
+            if (i % 500 == 0) or (i == num_fcns - 1):
+                instructions, lenghts = normalizer.normalize_functions(converted)
+                converted = []
+                payload = {"signature_name": "safe", "inputs": {"instruction": instructions, "lenghts": lenghts}}
+                r = requests.post(tf_serving, data=json.dumps(payload))
+                tmp = json.loads(r.text)
+                if "outputs" in tmp:
+                    embeddings.extend(tmp["outputs"])
 
         result = {}
-        if "outputs" not in embeddings:
+        if len(embeddings) == 0:
             if os.path.exists(name):
                 os.remove(name)
             return result
 
         for i, f in enumerate(functions):
-            result[f] = embeddings["outputs"][i]
+            result[f] = embeddings[i]
 
     except:
         traceback.print_exc()

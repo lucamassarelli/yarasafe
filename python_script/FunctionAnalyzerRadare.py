@@ -184,13 +184,14 @@ class RadareFunctionAnalyzer:
         return arch, bits
 
     def find_functions(self):
+        self.r2.cmd('aa')
         self.r2.cmd('aac')
+        self.r2.cmd('aar')
+        self.r2.cmd('aae')
+        self.r2.cmd('aat')
         self.r2.cmd('aap')
         try:
             function_list = json.loads(self.r2.cmd('aflj'))
-            if len(function_list) < 10:
-                self.r2.cmd('aaa')
-                function_list = json.loads(self.r2.cmd('aflj'))
         except:
             function_list = []
         return function_list
