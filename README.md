@@ -16,6 +16,8 @@ If you are using this for your research please cite:
   year={2019}
 }
 ```
+This is not the code for reproducing the experiments in the paper. If you are interested on it take a look at: https://github.com/gadiluna/SAFE
+
 
 ## Introduction
 
