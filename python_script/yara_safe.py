@@ -52,6 +52,7 @@ def worker(queue, name):
     analyzer = RadareFunctionAnalyzer(name, False, 0)
     functions = analyzer.analyze()
     queue.put(functions)
+    analyzer.close()
 
 def embedd_program(program, converter):
     try:
