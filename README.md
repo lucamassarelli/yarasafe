@@ -1,5 +1,5 @@
 
-# YARASAFE - Adding SAFE embedding to match functions in yara
+# YARASAFE - Automatic Binary Function Similarity Checks with Yara
 
 SAFE is a tool developed to create Binary Functions Embedding developed by 
 Massarelli L., Di Luna G.A., Petroni F., Querzoni L. and Baldoni R.
@@ -16,6 +16,8 @@ If you are using this for your research please cite:
   year={2019}
 }
 ```
+This is not the code for reproducing the experiments in the paper. If you are interested on it take a look at: https://github.com/gadiluna/SAFE
+
 
 ## Introduction
 

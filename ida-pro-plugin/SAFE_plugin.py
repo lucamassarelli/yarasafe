@@ -17,7 +17,7 @@ class Config(idaapi.action_handler_t):
     PLUGIN_HELP = ""
     PLUGIN_HOTKEY = "Shift-S"
     CONFIG_FILE_PATH = os.path.join(idc.GetIdaDirectory(), "cfg/SAFE.cfg")
-    SERVING_URL = "http://35.233.53.43:8500/v1/models/safe:predict"
+    SERVING_URL = "http://yarasafe.diag.uniroma1.it:8500/v1/models/safe:predict"
     PLUGIN_TEST = False
     ACTION_NAME = "SAFE:ConfigAction"
 
