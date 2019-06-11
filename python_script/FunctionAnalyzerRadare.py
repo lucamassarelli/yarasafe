@@ -7,7 +7,7 @@ import json
 import r2pipe
 import capstone
 import binascii
-
+import traceback
 
 class RadareFunctionAnalyzer:
 
@@ -24,6 +24,13 @@ class RadareFunctionAnalyzer:
     @staticmethod
     def filter_reg(op):
         return op["value"]
+
+
+    def execute_r2_cmd(self, cmd):
+        a = self.r2.cmd(cmd)
+        if type(a) != str:
+            a = a.decode('utf-8')
+        return a
 
     @staticmethod
     def filter_imm(op):
@@ -104,7 +111,7 @@ class RadareFunctionAnalyzer:
         return calls
 
     def get_instruction(self):
-        instruction = json.loads(self.r2.cmd("aoj 1"))
+        instruction = json.loads(self.execute_r2_cmd("aoj 1"))
         if len(instruction) > 0:
             instruction = instruction[0]
         else:
@@ -170,7 +177,7 @@ class RadareFunctionAnalyzer:
 
     def get_arch(self):
         try:
-            info = json.loads(self.r2.cmd('ij'))
+            info = json.loads(self.execute_r2_cmd('ij'))
             if 'bin' in info:
                 arch = info['bin']['arch']
                 bits = info['bin']['bits']
@@ -178,6 +185,7 @@ class RadareFunctionAnalyzer:
                 arch = None
                 bits = None
         except:
+            traceback.print_exc()
             print("Error loading file")
             arch = None
             bits = None
@@ -191,7 +199,7 @@ class RadareFunctionAnalyzer:
         self.r2.cmd('aat')
         self.r2.cmd('aap')
         try:
-            function_list = json.loads(self.r2.cmd('aflj'))
+            function_list = json.loads(self.execute_r2_cmd('aflj'))
         except:
             function_list = []
         return function_list
@@ -199,7 +207,7 @@ class RadareFunctionAnalyzer:
     def find_functions_by_symbols(self):
         self.r2.cmd('aa')
         try:
-            symbols = json.loads(self.r2.cmd('isj'))
+            symbols = json.loads(self.execute_r2_cmd('isj'))
             fcn_symb = [s for s in symbols if s['type'] == 'FUNC']
         except:
             fcn_symb = []
