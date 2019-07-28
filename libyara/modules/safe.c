@@ -266,7 +266,7 @@ int module_load(
 
     double **embedding_matrix;
     int num_func;
-    if(buf[0] == 77 && buf[1] == 90) { //Check if file is PE
+    if((buf[0] == 77 && buf[1] == 90) || (buf[0] == 0x7F && buf[1] == 'E' && buf[2] == 'L' && buf[3] == 'F') || (buf[0] == '\xce' && buf[1] == '\xfa' && buf[2] == '\xed' && buf[3] == '\xfe')) { //Check if file is PE
         num_func = launch_python_script(buf, size, &embedding_matrix);
         set_integer(num_func, module_object, "num_func");
         module_object->data = embedding_matrix;
