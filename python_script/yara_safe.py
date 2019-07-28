@@ -81,9 +81,12 @@ def embedd_program(program, converter):
         #embeddings = json.loads(r.text)
 
         embeddings = []
+
         num_fcns = len(functions)
-        i = 0;
+        fcns = []
+        new_fcn = []
         for i, f in enumerate(functions):
+            fcns.append(f)
             converted.append(converter.convert_to_ids(functions[f]['filtered_instructions']))
             if (i % 500 == 0) or (i == num_fcns - 1):
                 instructions, lenghts = normalizer.normalize_functions(converted)
@@ -92,7 +95,9 @@ def embedd_program(program, converter):
                 r = requests.post(tf_serving, data=json.dumps(payload))
                 tmp = json.loads(r.text)
                 if "outputs" in tmp:
+                    new_fcn.extend(fcns)
                     embeddings.extend(tmp["outputs"])
+                fcns = []
 
         result = {}
         if len(embeddings) == 0:
@@ -100,7 +105,7 @@ def embedd_program(program, converter):
                 os.remove(name)
             return result
 
-        for i, f in enumerate(functions):
+        for i, f in enumerate(new_fcn):
             result[f] = embeddings[i]
 
     except:
