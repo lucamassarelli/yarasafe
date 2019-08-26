@@ -48,13 +48,13 @@ The fastest way to use yarasafe is to use our docker container.
 
 Pull the images:
 
-* ```bash docker pull massarelli/yarasafe ```
+* ``` docker pull massarelli/yarasafe ```
 
 Start the docker mounting the folder that contains the rule and the file to analyze:
 
 
 
-* ```bash docker run -v {FOLDER_TO_MOUNT}:/home/yarasafe/test -it massarelli/yarasafe bash ```
+* ``` docker run -v {FOLDER_TO_MOUNT}:/home/yarasafe/test -it massarelli/yarasafe bash ```
 
 
 Launch yara inside the docker with your rule!
