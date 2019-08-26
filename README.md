@@ -160,7 +160,7 @@ Once you get the embeddings for your functions, you just need to create the rule
 An example of safe-yara-rule is:
 
 ```yara
-import safe
+import "safe"
 
 rule example
 {
