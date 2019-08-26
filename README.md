@@ -90,7 +90,7 @@ pip3 install -r requirements.txt
 
 ```bash
 ./bootstrap.sh
-./configure.sh
+./configure
 make
 ```
 
