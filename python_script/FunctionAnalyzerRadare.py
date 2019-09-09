@@ -14,7 +14,7 @@ class RadareFunctionAnalyzer:
     def __init__(self, filename, use_symbol, depth):
         self.r2 = r2pipe.open(filename, flags=['-2'])
         self.filename = filename
-        self.arch, self.bits = self.get_arch()
+        self.arch, self.bits, self.base = self.get_arch()
         self.top_depth = 0
         self.use_symbol = use_symbol
 
@@ -169,7 +169,7 @@ class RadareFunctionAnalyzer:
         instructions = []
         cap_insns = []
 
-        for i in md.disasm(binary, s):
+        for i in md.disasm(binary, s - self.base):
             # print("i: " + str(i))
             instructions.append(self.filter_memory_references(i))
 
@@ -181,6 +181,7 @@ class RadareFunctionAnalyzer:
             if 'bin' in info:
                 arch = info['bin']['arch']
                 bits = info['bin']['bits']
+                base = info['bin']['baddr'] + info['bin']['bits']
             else:
                 arch = None
                 bits = None
@@ -189,7 +190,7 @@ class RadareFunctionAnalyzer:
             print("Error loading file")
             arch = None
             bits = None
-        return arch, bits
+        return arch, bits, base
 
     def find_functions(self):
         self.r2.cmd('aa')
