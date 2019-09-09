@@ -4,7 +4,7 @@ This plugin can be used to produce functions embedding using the common disassem
 
 ## How to Install
 
-Just copy SAFE_plugin.py and word2id.py into IDA PRO plugin folder.
+Just copy SAFE_plugin.py and word2id.json into IDA PRO plugin folder.
 
 You need to copy also capstone package into the IDA PRO plugin folder. 
 To you can install it using pip and then copy the whole package there.

@@ -48,11 +48,14 @@ The fastest way to use yarasafe is to use our docker container.
 
 Pull the images:
 
-* docker pull massarelli/yarasafe
+* ``` docker pull massarelli/yarasafe ```
 
 Start the docker mounting the folder that contains the rule and the file to analyze:
 
-* docker run -v {FOLDER_TO_MOUNT}:/home/yarasafe/test -it massarelli/yarasafe bash
+
+
+* ``` docker run -v {FOLDER_TO_MOUNT}:/home/yarasafe/test -it massarelli/yarasafe bash ```
+
 
 Launch yara inside the docker with your rule!
 
@@ -90,7 +93,7 @@ pip3 install -r requirements.txt
 
 ```bash
 ./bootstrap.sh
-./configure.sh
+./configure
 make
 ```
 
@@ -160,7 +163,7 @@ Once you get the embeddings for your functions, you just need to create the rule
 An example of safe-yara-rule is:
 
 ```yara
-import safe
+import "safe"
 
 rule example
 {
