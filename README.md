@@ -18,6 +18,8 @@ If you are using this for your research please cite:
 ```
 This is not the code for reproducing the experiments in the paper. If you are interested on it take a look at: https://github.com/gadiluna/SAFE
 
+If you prefere to use PyTorch take a look at SAFEtorch: https://github.com/facebookresearch/SAFEtorch
+
 
 ## Introduction
 
